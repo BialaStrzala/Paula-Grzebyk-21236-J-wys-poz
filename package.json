@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/BialaStrzala/J-wys-poz/issues"
   },
-  "homepage": "https://github.com/BialaStrzala/J-wys-poz#readme"
+  "homepage": "https://github.com/BialaStrzala/J-wys-poz#readme",
+  "dependencies": {
+    "unique-string": "^3.0.0"
+  },
+  "type": "module"
 }
