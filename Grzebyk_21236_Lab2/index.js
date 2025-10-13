@@ -1,25 +1,33 @@
-const http = require('http'); 
-const fs = require('fs');
-
-const server = http.createServer(function (req, res) {  
-    getTitles(res); }).listen(8000, "127.0.0.1"); 
-
-function getTitles(res) {  
-    fs.readFile('./titles.json', function (err, data) { 
-        if (err) return hadError(err, res);
-        getTemplate(JSON.parse(data.toString()), res); 
-    }); } 
-
-function getTemplate(titles, res) {  
-    fs.readFile('./template.html', function (err, data) { 
-        if (err) return hadError(err, res);
-        formatHtml(titles, data.toString(), res);
-    }); }
-
-function formatHtml(titles, tmpl, res) {  
-    let html = tmpl.replace('%', titles.join('</li><li>')); 
-    res.writeHead(200, {'Content-Type': 'text/html'}); 
-    res.end(html); }
+function Watcher(watchDir, processedDir){ 
+    this.watchDir = watchDir; 
+    this.processedDir = processedDir; }
     
-function hadError(err, res) {  
-    console.error(err); res.end('Error'); } 
+const events = require('events');
+const util = require('util');
+util.inherits(Watcher, events.EventEmitter);
+
+const fs = require('fs');
+const watchDir = './watch';
+const processedDir = './done';
+    
+Watcher.prototype.watch = function() { 
+    const watcher = this; 
+    fs.readdir(this.watchDir, function(err, files) {
+        if (err) throw err; 
+        for(var index in files) { 
+            watcher.emit('process', files[index]); } }) } 
+
+Watcher.prototype.start = function() {  
+    const watcher = this; 
+    fs.watchFile(watchDir, function() { 
+        watcher.watch(); }); }
+        
+const watcher = new Watcher(watchDir, processedDir); 
+
+watcher.on('process', function process(file) { 
+    const watchFile = this.watchDir + '/' + file; 
+    const processedFile = this.processedDir + '/' + file.toLowerCase(); 
+    fs.rename(watchFile, processedFile, function(err) { 
+        if (err) throw err; }); }); 
+
+watcher.start(); 
