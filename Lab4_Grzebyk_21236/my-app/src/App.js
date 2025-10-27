@@ -1,14 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import HelloWithProps from './HelloWithProps';
+import Counter from './Counter';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <HelloWithProps name="Paula"/>
-        <HelloWithProps name="Ewa"/>
-        <HelloWithProps name="Adam"/>
+        <Counter/>
       </header>
     </div>
   );
