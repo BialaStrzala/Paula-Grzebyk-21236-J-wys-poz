@@ -1,14 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import InputTracker from './InputTracker';
-import LoginStatus from './LoginStatus';
+import TodoList from './TodoList';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <LoginStatus isLoggedIn={true}/>
-        <LoginStatus isLoggedIn={false}/>
+        <TodoList todos={["Kup mleko","Kup płatki","Kup chleb"]}/>
       </header>
     </div>
   );
