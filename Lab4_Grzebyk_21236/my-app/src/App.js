@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Counter from './Counter';
+import InputTracker from './InputTracker';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Counter/>
+        <InputTracker/>
       </header>
     </div>
   );
