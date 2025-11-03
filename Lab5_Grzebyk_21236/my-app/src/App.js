@@ -3,12 +3,13 @@ import './App.css';
 import ToggleDetails from './ToggleDetails';
 import ScoreDisplay from './ScoreDisplay';
 import TaskList from './TaskList';
+import UserList from './UserList';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <TaskList />
+        <UserList />
       </header>
     </div>
   );
