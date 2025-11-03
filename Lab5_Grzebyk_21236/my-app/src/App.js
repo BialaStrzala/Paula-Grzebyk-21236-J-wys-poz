@@ -1,16 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import ToggleDetails from './ToggleDetails';
-import ScoreDisplay from './ScoreDisplay';
-import TaskList from './TaskList';
-import UserList from './UserList';
-import TimerCounter from './TimerCounter';
+import ShowImage from './ShowImage';
+import HandleClick from './HandleClick';
+import HandleMouseOver from './HandleMouseOver';
+import LoadDataFromJson from './loadDataFromJson';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <TimerCounter />
+        <HandleClick />
+        <HandleMouseOver />
+        <ShowImage />
+        <LoadDataFromJson />
       </header>
     </div>
   );
