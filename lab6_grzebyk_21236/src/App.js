@@ -3,12 +3,13 @@ import './App.css';
 import ClickCounter from './ClickCounter';
 import PrimeCalculator from './PrimeCalculator';
 import FormReducer from './FormReducer';
+import LayoutEffectExample from './LayoutEffectExample';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <FormReducer/>
+        <LayoutEffectExample/>
       </header>
     </div>
   );
